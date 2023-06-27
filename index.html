@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu con cheCkBox</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: url('fondojswebp.webp') no-repeat center center fixed;
+            background-size:cover;
+        }
+        .contenedor {
+            width: 100%;
+            height: 60px;
+            background-color: rgb(70, 114, 236);
+            display: flex;
+            align-items: center;
+        }
+        input {
+            display: none;
+        }
+        img {
+            width:30px;
+            margin-left: 10px;
+            position: relative;
+            display: none; 
+            transition: 1s;
+        }
+       
+        .menuSecundario {
+            background-color:blueviolet;
+            position: absolute;
+            top: 50px;
+            left: 10px;
+            box-shadow: 2px 2px 5px white;
+            display: none;
+            
+        }
+        
+        li {
+            list-style: none;
+            padding: 10px;
+            border-bottom: 1px solid white;
+            cursor: pointer;
+            color: white;
+        }
+        nav {
+            display: flex;
+        }
+        nav ul {
+            display: flex;
+        }
+        nav ul li {
+            border: 1px solid white;
+            margin: 0 5px;
+        }
+
+        li:hover {
+            background-color: rgb(66, 66, 245);
+            text-shadow: 2px 2px 5px black;
+        }
+        @media (max-width: 400px) {
+            #boton {
+                display: block;
+            }
+            nav {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    
+        <header class="contenedor">            
+            <label>
+                <input type="checkbox" id="menu" name="menu" />
+                <img src="menu.png" alt="menu imagen"  id="boton"/>
+            </label>
+            <div class="menuSecundario" id="menuSecundario">
+                <ul>
+                    <li>INICIO</li>
+                    <li>PRODUCTOS</li>
+                    <li>UBICACION</li>
+                    <li>MENSAGES</li>
+                </ul>
+            </div>
+            <nav>
+                <ul>
+                    <li>INICIO</li>
+                    <li>PRODUCTOS</li>
+                    <li>UBICACION</li>
+                    <li>MENSAGES</li>
+                </ul>
+                </nav>
+            
+            </header>
+    
+    <script>
+        let mainMenu = document.getElementById('menu');
+        let imagenMenu = document.getElementById('boton');
+        let cuadro = document.getElementById('menuSecundario');
+        mainMenu.addEventListener('click',function() {
+            mainMenu.checked ? cuadro.style.display='block': cuadro.style.display='none';
+            mainMenu.checked ? imagenMenu.style.transform='rotate(180deg)': imagenMenu.style.transform='rotate(0deg)';
+        })
+    </script>
+</body>
+</html>
